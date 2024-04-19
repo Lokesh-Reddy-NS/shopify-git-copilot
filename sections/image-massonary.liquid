@@ -21,7 +21,12 @@
 {% style %}
 .masonry {
   /* Add your CSS for the masonry layout here */
-}
+  .image{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+  }
 {% endstyle %}
 
 {% for block in section.blocks %}

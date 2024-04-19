@@ -1,0 +1,33 @@
+{% schema %}
+{
+  "name": "Image Masonry",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+.masonry {
+  /* Add your CSS for the masonry layout here */
+}
+{% endstyle %}
+
+{% for block in section.blocks %}
+  <div class="masonry-item">
+    {% if block.settings.image != blank %}
+    <img src="{{ block.settings.image | image_url: 'master' }}" alt="" width="auto" height="auto">
+    {% endif %}
+  </div>
+{% endfor %}
